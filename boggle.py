@@ -1,6 +1,6 @@
 
-import string
 import random
+import time
 
 
 def main():
@@ -92,6 +92,20 @@ def random_dice_list():
         
     print(' ----- ----- ----- -----')
 
+# define the countdown func.
+def countdown(t):
+    
+    while t:
+        mins, secs = divmod(t, 60)
+        timer = '{:02d}:{:02d}'.format(mins, secs)
+        print(timer, end="\r")
+        time.sleep(1)
+        t -= 1
+      
+    print('\n\n\n\n\n\n\n\n\n\n\n\nTIME IS OVER!!!\n\n\n**********')
+  
+  
+
 
 
 if __name__ == "__main__":
@@ -99,7 +113,11 @@ if __name__ == "__main__":
     greet_user('Ana' + ' Guerro')
     #generate_random_board()
     # generate_random_board_loop()
+    # input time in seconds
+    t = input("Enter the time in seconds: ")    
+    # function call    
     random_dice_list()
+    countdown(int(t))
 
 
 
